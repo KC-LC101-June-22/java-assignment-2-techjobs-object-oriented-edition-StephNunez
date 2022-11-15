@@ -29,6 +29,41 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
         Job callJob = new Job();
+    }//constructor
+
+    @Override
+    public String toString(){
+
+        System.out.println(name);
+        System.out.println(employer.getValue());
+
+        if(name.equals("") || name == null){
+            name = "Data not available";
+        }
+        if(employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not available");
+        }//needs .getValue() because it is a class
+
+        if(location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+        }
+
+        String label =
+                "\nID: " +this.getId()+
+                "\nName: " + name +
+                "\nEmployer: " + employer.getValue() +
+                "\nLocation: " + location.getValue() +
+                "\nPosition Type: " + positionType.getValue() +
+                "\nCore Competency: "  + coreCompetency.getValue() +
+                "\n";
+
+        return label;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields

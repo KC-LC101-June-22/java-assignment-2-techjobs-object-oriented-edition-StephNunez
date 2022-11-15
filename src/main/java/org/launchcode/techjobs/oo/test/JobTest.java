@@ -9,6 +9,8 @@ import org.launchcode.techjobs.oo.*;
 import javax.naming.Name;
 import javax.print.attribute.standard.JobName;
 
+import java.util.Objects;
+
 import static org.junit.Assert.*;
 
 /**
@@ -46,8 +48,43 @@ public class JobTest {
         Job testJob4 = new Job();
         Job testJob5 = new Job();
 
-        System.out.println(testJob4.equals(testJob5));
+        //System.out.println(testJob4.equals(testJob5));
     }//testJobsForEquality
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job testJob6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals('\n', testJob6.toString().charAt(0));
+        assertEquals('\n', testJob6.toString().charAt(testJob6.toString().length()-1));
+
+    }//testToStringStartsAndEndsWithNewLine
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testJob7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("\nID: " +testJob7.getId()+
+                "\nName: Product tester" +
+                "\nEmployer: ACME"+
+                "\nLocation: Desert"+
+                "\nPosition Type: Quality control"+
+                "\nCore Competency: Persistence"+
+                "\n", testJob7.toString());
+    }//testToStringContainsCorrectLabelsAndData
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        //Job testJob8 = new Job("",null,null,null,null);
+        Job testJob8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        assertEquals("\nID: " +testJob8.getId()+
+                "\nName: Data not available" +
+                "\nEmployer: Data not available" +
+                "\nLocation: Data not available"  +
+                "\nPosition Type: Data not available" +
+                "\nCore Competency: Data not available" +
+                "\n", testJob8.toString());
+
+    }//testToStringHandlesEmptyField
 
 }//public class
 
