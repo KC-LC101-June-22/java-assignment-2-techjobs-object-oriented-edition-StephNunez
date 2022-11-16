@@ -34,9 +34,6 @@ public class Job {
     @Override
     public String toString(){
 
-        System.out.println(name);
-        System.out.println(employer.getValue());
-
         if(name.equals("") || name == null){
             name = "Data not available";
         }
