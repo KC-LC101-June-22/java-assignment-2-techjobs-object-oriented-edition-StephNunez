@@ -48,6 +48,8 @@ public class JobTest {
         Job testJob4 = new Job();
         Job testJob5 = new Job();
 
+        assertFalse(testJob4.equals(testJob5));
+
         //System.out.println(testJob4.equals(testJob5));
     }//testJobsForEquality
 
